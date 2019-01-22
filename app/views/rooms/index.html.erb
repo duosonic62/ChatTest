@@ -1,0 +1,16 @@
+<h1>My Page</h1>
+<div>
+  <p>Create Room</p>
+  <%= link_to 'new room', action: :new , class: :btn%>
+  <% if flash[:created_room_id] %>
+    <p>new room id <%= flash[:created_room_id] %><p>
+  <% end %>
+
+  <%= form_for(:room, method: :post, :url => {:action => :show}) do |f| %>
+    <div class="form-group">
+      <%= f.label :room_id, 'Room ID' %>
+      <%= f.text_field :room_id, class: 'form-control' %>
+    </div>
+    <%= f.submit 'Login Room', class: 'btn btn-primary' %>
+  <% end %>
+</div>
