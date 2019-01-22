@@ -1,10 +1,11 @@
 <h1>Chat room</h1>
 
-<div id="messages">
+<div id="messages", data-room_id="<%= @room.id %>">
   <%= render @messages %>
 </div>
-
- <form>
-  <label>Say something:</label><br>
-  <input type="text" data-behavior="room_speaker">
-</form>
+<div class="input">
+  <form>
+    <label>post</label>
+    <input type="text" data-behavior="room_speaker">
+  </form>
+</div>
