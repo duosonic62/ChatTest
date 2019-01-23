@@ -1,0 +1,25 @@
+/* テーマカラーを変更する */
+$theme-colors: (
+  primary: #C3866D,
+  secondary: #6F858E, /* デフォルトにないカラーの追加 */
+  success: #25C9DE,
+  danger: #BE5364,
+  warning: #CE8E37,
+  info: #779382,
+  dark: #5D4B3A,
+  light: #EEE9D0,
+  white: #ECE9D6
+);
+
+/* サイト全体のバックグラウンドカラーを設定 */
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+.bg-container {
+  background-color: map-get($theme-colors, white);
+  min-height: 100%;
+}
+
+@import "bootstrap";

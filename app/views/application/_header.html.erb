@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to current_user.username, rooms_index_pathclass: 'nav-link' %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Simple Chat', new_user_session_path, class: 'nav-link' %>
+          </li>
+        <% end %>
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            User
+          </a>
+          <% if user_signed_in? %>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Edit profile', edit_user_registration_path, class: 'dropdown-item' %>
+              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            </div>
+          <% else %>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Sign up', new_user_registration_path, class: 'dropdown-item' %>
+              <%= link_to 'Sign in', new_user_session_path, class: 'dropdown-item' %>
+            </div>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
