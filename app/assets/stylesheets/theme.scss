@@ -2,13 +2,13 @@
 $theme-colors: (
   primary: #C3866D,
   secondary: #6F858E, /* デフォルトにないカラーの追加 */
-  success: #25C9DE,
+  success: rgb(84, 142, 189),
   danger: #BE5364,
   warning: #CE8E37,
   info: #779382,
   dark: #5D4B3A,
   light: #EEE9D0,
-  white: #ECE9D6
+  white: #F9F9F8
 );
 
 /* サイト全体のバックグラウンドカラーを設定 */
@@ -20,6 +20,10 @@ body {
 .bg-container {
   background-color: map-get($theme-colors, white);
   min-height: 100%;
+}
+
+.main-cantainer{
+  padding-top: 43px;
 }
 
 @import "bootstrap";
