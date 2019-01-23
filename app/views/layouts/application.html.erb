@@ -11,9 +11,15 @@
   <body>
     <div class="bg-container">
       <%= render 'header' %>
-      <div class="container">
-        <p class=”notice”><%= notice %></p> 
-        <p class=”alert”><%= alert %></p>
+      <div class="container main-cantainer">
+        <div class="info-messages-container">
+          <% if notice %>
+            <div class="alert alert-info" role="alert"><%= notice %></div> 
+          <% end %>
+          <% if alert %>
+            <div class="alert alert-danger" role="alert"><%= alert %></div>
+          <% end%>
+        </div>
         <%= yield %>
       </div>
     </div>  

@@ -3,9 +3,11 @@
 <div id="messages", data-room_id="<%= @room.id %>">
   <%= render @messages %>
 </div>
-<div class="input">
-  <form>
-    <label>post</label>
-    <input type="text" data-behavior="room_speaker">
+<div class="input fixed-bottom py-5 bg-primary">
+  <form class="container">
+    <div class="form-group">
+      <label><h3 class="text-white">Message post</h3></label>
+      <textarea type="text" rows="2" data-behavior="room_speaker" class="form-control"></textarea>
+    </div>
   </form>
 </div>
