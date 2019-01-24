@@ -1,7 +1,7 @@
 <div class="message">
   <% if current_user == message.user %>
-    <p><%= "#{message.content}" %></p>
+    <%= render 'messages/write_message', message: message %>
   <% else %>
-    <p><%= "#{message.user.username}: #{message.content}" %></p>
+    <%= render 'messages/read_message', message: message %>
   <% end %>
 </div>

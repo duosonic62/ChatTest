@@ -1,5 +1,6 @@
 <h1>Chat room</h1>
-
+<!-- チャットを見ているユーザの情報(id)を格納 -->
+<div id="read_user_id" data-read_user_id="<%= current_user.id %>"></div>
 <div id="messages", data-room_id="<%= @room.id %>">
   <%= render @messages %>
 </div>
