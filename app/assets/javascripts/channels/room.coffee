@@ -11,9 +11,11 @@ document.addEventListener 'turbolinks:load', ->
 
       # 書き込みが自分か、相手かで表示するパーシャルを変更させる
       if read_user_id == write_user_id
-        $('#messages').append data['write_message']        
+        $('#messages').append data['write_message']
+        scrollTo( 0, $("#messages")[0].scrollHeight )
       else
         $('#messages').append data['read_message']
+        scrollTo( 0, $("#messages")[0].scrollHeight )
 
     speak: (message)->
       @perform 'speak', message: message
