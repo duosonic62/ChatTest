@@ -1,3 +1,7 @@
 <div class="message">
-  <p><%= "#{message.user.username}: #{message.content}" %></p>
+  <% if current_user == message.user %>
+    <p><%= "#{message.content}" %></p>
+  <% else %>
+    <p><%= "#{message.user.username}: #{message.content}" %></p>
+  <% end %>
 </div>

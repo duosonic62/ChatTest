@@ -7,6 +7,8 @@ class MessageBroadcastJob < ApplicationJob
 
   private
     def render_message(message)
-      ApplicationController.renderer.render(partial: 'messages/message', locals: { message: message })
+      # ApplicationController.renderer.renderでは、deviceのwarden proxyが無視されるため、独自メソッドを使用
+      # ApplicationController.renderer.render(partial: 'messages/message', locals: { message: message, current_user: message.user })
+      ApplicationController.render_with_signed_in_user(message.user,partial: 'messages/message', locals: { message: message })
     end
 end
