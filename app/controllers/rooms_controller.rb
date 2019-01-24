@@ -3,8 +3,16 @@ require "securerandom"
 class RoomsController < ApplicationController
   before_action :sign_in_required
   def show
-    @room = Room.find_by(room_id: params[:room][:room_id])
-    @messages = @room.messages
+    # ルームが存在するか確認
+    if Room.exists?(room_id: params[:room][:room_id]) 
+      @room = Room.find_by(room_id: params[:room][:room_id])
+      @messages = @room.messages
+    else
+      # ルームが存在しなければ、エラーメッセージをインデックスでレンダリング
+      @room = Room.new()
+      flash.now[:alert] = 'Not a valid room id.'
+      render 'index'
+    end
   end
 
   def index
