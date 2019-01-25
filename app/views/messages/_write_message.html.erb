@@ -1,7 +1,12 @@
-<div class="message mt-2 clearfix">
+<div class="message mt-2 clearfix" id="message_<%= "#{message.id}" %>">
     <div class="card d-inlineflex float-right">
       <div class="card-body">
-        <p class="card-text"><%= "#{message.content}" %></p>
+        <p class="card-text">
+          <button type="button" class="close float-right" aria-label="Close" id="<%= "#{message.id}" %>" >
+            <span class="delete_btn" id="<%= "#{message.id}" %>" aria-hidden="true">&times;</span>
+          </button>  
+          <%= "#{message.content}" %>
+        </p>
       </div>
     </div>
 </div>
