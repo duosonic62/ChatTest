@@ -3,13 +3,13 @@ require 'rails_helper'
 RSpec.describe Room, type: :model do
   context 'roomモデルに正常な値を渡す' do
     before do
-      create(:room01)
+      create(:alice_bob_room)
     end
 
-    # room01と被っていない正常な情報を準備
+    # alice_bob_roomと被っていない正常な情報を準備
     let(:room) { Room.new(room_id: 'testroom') }
 
-    it 'vvalidationにかからないこと' do
+    it 'validationにかからないこと' do
       room.valid?
       expect(room).to be_valid
     end
@@ -18,8 +18,8 @@ RSpec.describe Room, type: :model do
    context 'roomモデルに異常な値を渡す' do
     context 'room_idへのvalidationの確認'do
       it 'uniquenessが効くこと' do
-        create(:room01)
-        room = build_stubbed(:room01)
+        create(:alice_bob_room)
+        room = build_stubbed(:alice_bob_room)
         room.valid?
         expect(room.errors.messages[:room_id]).to include('has already been taken')
       end

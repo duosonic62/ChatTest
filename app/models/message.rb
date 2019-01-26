@@ -13,7 +13,7 @@
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :room
-  validates :content, presence: true
+  validates :content, presence: true, length: {maximum: 1000}
   # messageが作成されたら、ジョブのキューに送信するメッセージを追加
   after_create_commit { MessageBroadcastJob.perform_later self }
 end
