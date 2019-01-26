@@ -11,5 +11,5 @@
 class Room < ApplicationRecord
   has_many :messages
 
-  validates :room_id, presence: true, uniqueness: true
+  validates :room_id, presence: true, uniqueness: true, length: { is: 8 }
 end
