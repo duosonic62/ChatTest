@@ -30,11 +30,6 @@ RSpec.describe Room, type: :model do
         expect(room.errors.messages[:room_id]).to include("can't be blank")
       end
 
-      it 'lengthが効くこと' do
-        room = Room.new(room_id: '1234567')
-        room.valid?
-        expect(room.errors.messages[:room_id]).to include("is the wrong length (should be 8 characters)")
-      end
     end
    end
 end
