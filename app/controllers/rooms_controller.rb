@@ -30,14 +30,15 @@ class RoomsController < ApplicationController
 
     # ルームIDを発行する
     @room = Room.new(room_id: random_room_id)
-    # binding.pry
-    if @room.save!
+
+    if @room.save
       # indexをレンダリング(flashで新規に作成されたIDを渡す)
       flash.now[:created_room_id] = @room.room_id
       render 'index'
     else
-      # TODO:
-      # エラーが発生した際の処理
+      # エラーが発生した際はエラーメッセージをインデックスでレンダリング
+      flash.now[:alert] = "Room ID can't create. Try again."
+      render 'index'
     end
   end
   
