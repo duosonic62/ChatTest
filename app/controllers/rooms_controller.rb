@@ -20,7 +20,7 @@ class RoomsController < ApplicationController
   end
 
   def new
-    # ランダムなルームIDを割り振る
+    # ランダムな8~11文字程度のルームIDを割り振る
     random_room_id = SecureRandom.urlsafe_base64(8)
 
     # もしルームIDが被ったら新たにユニークなルームIDを発行する
@@ -30,7 +30,8 @@ class RoomsController < ApplicationController
 
     # ルームIDを発行する
     @room = Room.new(room_id: random_room_id)
-    if @room.save
+    # binding.pry
+    if @room.save!
       # indexをレンダリング(flashで新規に作成されたIDを渡す)
       flash.now[:created_room_id] = @room.room_id
       render 'index'
