@@ -18,9 +18,7 @@ RSpec.describe RoomChannel, type: :channel do
 
     it "room_idが存在する場合はストリーミングを開始すること" do
       subscribe({'room_id': 42})
-
       expect(subscription).to be_confirmed
-      # expect(streams).to include("room_channel_42")
       expect(subscription).to have_stream_from("room_channel_42")
     end
   end

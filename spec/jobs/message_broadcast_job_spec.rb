@@ -13,7 +13,7 @@ RSpec.describe MessageBroadcastJob, type: :job do
 
     it 'Queuにジョブが追加されること' do
       message = build_stubbed(:message_to_bob)
-      expect {MessageBroadcastJob.perform_later(message)}.to have_enqueued_job(MessageBroadcastJob)
+      expect { MessageBroadcastJob.perform_later(message) }.to have_enqueued_job(MessageBroadcastJob)
     end
 
     it 'ActionCable.server.broadcastを呼び出していること' do
