@@ -63,8 +63,12 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
 
-  # Device、Controllerマクロの読み込み
+  # Device、Controllerマクロの読み込み (エラー修正)
   # config.include Devise::TestHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ControllerMacros, type: :controller
+
+  # ActiveJobの読み込み
+  config.include ActiveJob::TestHelper
+  config.include ActiveSupport::Testing::TimeHelpers
 end
