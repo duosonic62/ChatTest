@@ -5,16 +5,17 @@ class DeleteChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
+    stop_all_streams
   end
 
   def delete(data)
     # チャネルへのリクエストは正しいか確認
-    if Message.find(data['id']).user_id == current_user.id
+    if Message.find(data['id']).user_id == connection.current_user.id
       Message.destroy(data['id'])
       ActionCable.server.broadcast 'delete_channel', id: data['id']
     else
-      # TODO:
       # 不正なリクエストの処理
+      reject
     end
   end
 end
