@@ -2,7 +2,8 @@ class MessageBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(message)
-    ActionCable.server.broadcast "room_channel_#{message.room_id}", read_message: read_render_message(message), write_message: write_render_message(message), write_user_id: message.user.id
+    ActionCable.server.broadcast "room_channel_#{message.room_id}", read_message: read_render_message(message),
+      write_message: write_render_message(message), write_user_id: message.user.id
   end
 
   private
