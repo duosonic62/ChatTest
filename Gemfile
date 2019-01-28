@@ -51,6 +51,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'database_cleaner'
   gem 'faker'
+  gem 'action-cable-testing'
 end
 
 group :development do
