@@ -1,24 +1,24 @@
-# README
+# SimpleChat
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+You can use chat throught your browser.
 
-Things you may want to cover:
-
+## Requirement
 * Ruby version
+  2.3.3
 
-* System dependencies
+* Rails version
+  5.1.6
 
-* Configuration
+## Usage
+### run
+1. clone
+1. Hit the command ```bundle install``` at Application root derectory.
+1. Hit the command ```rails s``` at Application root derectory.
 
-* Database creation
+### test
+1. Hit the command ```rspec spec/``` at Application root derectory.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### chat
+1. Start your browser.
+1. Visit ```http://localhost:3000/```
