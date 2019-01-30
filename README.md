@@ -14,6 +14,7 @@ You can use chat throught your browser.
 ### run
 1. clone
 1. Hit the command ```bundle install``` at Application root derectory.
+1. Hit the command ```rails db:migrate``` at Application root derectory.
 1. Hit the command ```rails s``` at Application root derectory.
 
 ### test
@@ -22,3 +23,6 @@ You can use chat throught your browser.
 ### chat
 1. Start your browser.
 1. Visit ```http://localhost:3000/```
+
+## License
+MIT
