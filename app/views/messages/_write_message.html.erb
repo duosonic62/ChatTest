@@ -5,7 +5,7 @@
           <button type="button" class="close float-right" aria-label="Close" id="<%= "#{message.id}" %>" >
             <span class="delete_btn" id="<%= "#{message.id}" %>" aria-hidden="true">&times;</span>
           </button>  
-          <%= "#{message.content}" %>
+          <%= simple_format(message.content) %>
         </p>
       </div>
     </div>

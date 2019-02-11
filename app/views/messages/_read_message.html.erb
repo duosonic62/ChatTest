@@ -2,9 +2,9 @@
   <div class="card d-inline-flex p-2" >
     <div class="card-body">
       <p class="card-title border-bottom">
-        <%= "#{message.user.username}" %> 
+        <%= simple_format(message.user.username) %> 
       </p>
-      <p class="card-text"><%= "#{message.content}" %></p>
+      <p class="card-text"><%= simple_format(message.content) %></p>
     </div>
   </div>
 </div>
